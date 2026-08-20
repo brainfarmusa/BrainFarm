@@ -11,6 +11,9 @@ header{position:sticky;top:0;background:#06101fee;border-bottom:1px solid #20355
 .brand b{color:#ef3340}
 .tag{display:block;font-size:.65rem;color:#9fb0c7;letter-spacing:.08em}
 .tag em{color:#43b7ff;font-style:normal}
+header .nav{min-height:150px}
+header .brand{gap:20px;font-size:2.36rem}
+header .brand img{width:128px;height:128px}
 nav{display:flex;gap:18px;align-items:center;font-size:.95rem}
 .cta,.btn{display:inline-block;background:linear-gradient(135deg,#1f7bff,#43b7ff);padding:12px 18px;border-radius:8px;font-weight:700}
 .outline{background:transparent;border:1px solid #4b6386}
