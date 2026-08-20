@@ -9,8 +9,13 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/site/assets/brain-farm-usa-emblem-transparent.png",
+    icon: {
+      url: "/site/assets/brain-farm-usa-emblem-transparent.png",
+      type: "image/png",
+      sizes: "any",
+    },
     shortcut: "/site/assets/brain-farm-usa-emblem-transparent.png",
+    apple: "/site/assets/brain-farm-usa-emblem-transparent.png",
   },
 };
 
