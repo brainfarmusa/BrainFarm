@@ -8,7 +8,7 @@ header{position:sticky;top:0;background:#06101fee;border-bottom:1px solid #20355
 .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.18rem}
 .brand img{width:64px;height:64px;object-fit:contain}
 .brand-name{font-family:"Arial Black",Arial,sans-serif;letter-spacing:.015em;line-height:1.05;white-space:nowrap}
-.brand b{color:#ef3340}
+.brand b{color:transparent;background:linear-gradient(90deg,#ef3340 0 33.333%,#fff 33.333% 66.666%,#2f8cff 66.666% 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .tag{display:block;font-size:.65rem;color:#9fb0c7;letter-spacing:.08em}
 .tag em{color:#43b7ff;font-style:normal}
 header .nav{min-height:150px}
