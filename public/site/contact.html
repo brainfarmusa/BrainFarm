@@ -39,7 +39,9 @@
           <p class="lead">You do not need a finished specification. BrainFarm USA will review your goals and recommend the appropriate entry-level, mid-level or high-end platform.</p>
           <div class="mini-process"><article><b>01</b><h3>Describe the work</h3><p>Tell us about the users, documents, workflows and security requirements.</p></article><article><b>02</b><h3>Engineering review</h3><p>We match the workload to hardware, software, deployment and support.</p></article><article><b>03</b><h3>Receive a proposal</h3><p>You receive a clear system recommendation, scope and price range.</p></article></div>
         </div>
-        <form class="inquiry-form" data-mail-form data-mail-subject="BrainFarm USA — Request a Quote">
+        <form class="inquiry-form" data-inquiry-form enctype="multipart/form-data">
+          <input type="hidden" name="Inquiry type" value="quote">
+          <label class="form-trap" aria-hidden="true">Website<input name="Website" tabindex="-1" autocomplete="off"></label>
           <h2>Request a Quote</h2>
           <p>Complete what you know. We will follow up for anything else.</p>
           <div class="form-grid two"><label>Full name<input name="Name" required autocomplete="name"></label><label>Company<input name="Company" required autocomplete="organization"></label></div>
@@ -48,8 +50,9 @@
           <label>What should the private AI help your company do?<textarea name="Goals and use cases" required placeholder="Document search, private chat, OCR, customer service, drafting, analysis, automation or other goals"></textarea></label>
           <label>Documents, data and existing systems<textarea name="Documents, data and systems" placeholder="Types of files, approximate volume, current servers, network, software and integrations"></textarea></label>
           <div class="form-grid two"><label>Desired timing<input name="Desired timing" placeholder="e.g. This quarter"></label><label>Installation location<input name="Installation location" placeholder="City and state"></label></div>
-          <button class="btn form-submit" type="submit">Prepare Email to BrainFarm USA</button>
-          <p class="form-note" data-form-status>Your email application will open with the request ready to send.</p>
+          <label>Attach supporting files<input type="file" name="Attachments" multiple accept=".pdf,.csv,.xls,.xlsx,.doc,.docx,.jpg,.jpeg,.png"><small>Up to 5 files, 10MB each. PDF, Excel, CSV, Word, JPG or PNG.</small></label>
+          <button class="btn form-submit" type="submit">Submit Quote Request</button>
+          <p class="form-note" data-form-status>Your request and attachments will be submitted securely.</p>
         </form>
       </div>
     </section>
