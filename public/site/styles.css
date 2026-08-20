@@ -100,6 +100,17 @@ footer{padding:45px 0;border-top:1px solid #203552;color:#9fb0c7}
   .platform-choice-grid,.entry-price-grid{grid-template-columns:1fr}
   .inquiry-hero-grid,.inquiry-layout{grid-template-columns:1fr}.category-grid,.category-grid.four{grid-template-columns:1fr 1fr}.mini-process.horizontal{grid-template-columns:1fr}.action-hub-grid{grid-template-columns:1fr}
 }
+
+/* Secure inquiry forms */
+.form-note[data-state="success"]{color:#1c7a4a!important;font-weight:800}
+.form-note[data-state="error"]{color:#b42318!important;font-weight:800}
+.dark-form .form-note[data-state="success"]{color:#79e7ad!important}
+.dark-form .form-note[data-state="error"]{color:#ff9b91!important}
+.form-trap{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.inquiry-form input[type="file"]{padding:10px;background:#f2f7fa}
+.inquiry-form label small{font-size:.74rem;font-weight:500;color:#6a7c8f;line-height:1.4}
+.dark-form label small{color:#a9bfd2}
+.form-submit:disabled{opacity:.65;cursor:wait}
 @media(max-width:600px){
   .grid,.specs,.checks{grid-template-columns:1fr}
   .actions{flex-direction:column}
