@@ -10,12 +10,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: {
-      url: "/site/assets/brain-farm-usa-emblem-transparent.png",
-      type: "image/png",
-      sizes: "any",
+      url: "/favicon.ico?v=2",
+      type: "image/x-icon",
     },
-    shortcut: "/site/assets/brain-farm-usa-emblem-transparent.png",
-    apple: "/site/assets/brain-farm-usa-emblem-transparent.png",
+    shortcut: "/favicon.ico?v=2",
+    apple: "/favicon.png?v=2",
   },
 };
 
