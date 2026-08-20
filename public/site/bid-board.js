@@ -24,8 +24,7 @@
     });
     grid.innerHTML = filtered.map(function (lot) {
       var parts = lotParts(lot.details);
-      var requestHref = document.querySelector('[name="Specifications and requirements"]') ? "#buy-request" : "want-to-buy.html#buy-request";
-      return '<article class="bid-lot-card"><div class="bid-lot-meta"><span>' + escapeHtml(lot.category) + '</span><b>' + escapeHtml(lot.bidId) + '</b></div><h3>' + escapeHtml(parts.title) + '</h3>' + (parts.due ? '<p class="bid-due">' + escapeHtml(parts.due) + '</p>' : '') + (lot.notes ? '<p class="bid-notes">' + escapeHtml(lot.notes) + '</p>' : '') + '<div class="bid-lot-actions"><a href="' + SHEET_URL + '&range=A' + lot.sheetRow + '" target="_blank" rel="noopener">View lot on live board</a><a href="' + requestHref + '" data-lot-request="' + escapeHtml(lot.bidId) + '">Request this lot</a></div></article>';
+      return '<article class="bid-lot-card"><div class="bid-lot-meta"><span>' + escapeHtml(lot.category) + '</span><b>' + escapeHtml(lot.bidId) + '</b></div><h3>' + escapeHtml(parts.title) + '</h3>' + (parts.due ? '<p class="bid-due">' + escapeHtml(parts.due) + '</p>' : '') + (lot.notes ? '<p class="bid-notes">' + escapeHtml(lot.notes) + '</p>' : '') + '<div class="bid-lot-actions"><a href="' + SHEET_URL + '&range=A' + lot.sheetRow + '" target="_blank" rel="noopener">View lot on live board</a></div></article>';
     }).join("");
     empty.hidden = filtered.length !== 0;
     status.textContent = filtered.length === lots.length ? "Showing all current opportunities." : "Showing " + filtered.length + " of " + lots.length + " current opportunities.";
@@ -51,7 +50,6 @@
   window.google.visualization.Query.setResponse = loadResponse;
   search.addEventListener("input", render);
   category.addEventListener("change", render);
-  grid.addEventListener("click", function (event) { var link = event.target.closest("[data-lot-request]"); if (!link) return; var field = document.querySelector('[name="Specifications and requirements"]'); if (field && !field.value) field.value = "I am interested in bid lot " + link.dataset.lotRequest + "."; });
   var script = document.createElement("script");
   var query = "select A,C,D,E,F where A is not null";
   script.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?gid=" + SHEET_GID + "&range=A9:F&headers=1&tqx=out:json&tq=" + encodeURIComponent(query);
