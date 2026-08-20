@@ -5,6 +5,19 @@
   var ENDPOINT = SUPABASE_URL + "/functions/v1/submit-inquiry";
   var MAX_FILES = 5;
   var MAX_FILE_SIZE = 10 * 1024 * 1024;
+  var phoneInstances = new WeakMap();
+
+  if (window.intlTelInput) {
+    document.querySelectorAll("[data-phone-input]").forEach(function (input) {
+      phoneInstances.set(input, window.intlTelInput(input, {
+        initialCountry: "us",
+        separateDialCode: true,
+        nationalMode: true,
+        strictMode: true,
+        formatAsYouType: true
+      }));
+    });
+  }
 
   function setStatus(form, message, state) {
     var status = form.querySelector("[data-form-status]");
@@ -17,6 +30,11 @@
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       if (!form.reportValidity()) return;
+      var phoneInput = form.querySelector("[data-phone-input]");
+      var phone = phoneInput && phoneInstances.get(phoneInput);
+      if (phoneInput && phoneInput.value.trim() && phone && !phone.isValidNumber()) {
+        return setStatus(form, "Please enter a complete phone number or select the correct country.", "error");
+      }
       var files = Array.from(form.querySelector('input[type="file"]')?.files || []);
       if (files.length > MAX_FILES) return setStatus(form, "Please attach no more than five files.", "error");
       if (files.some(function (file) { return file.size > MAX_FILE_SIZE; })) return setStatus(form, "Each attachment must be 10MB or smaller.", "error");
@@ -27,10 +45,12 @@
       button.textContent = "Submitting…";
       setStatus(form, files.length ? "Securely uploading your files…" : "Securely sending your request…", "working");
       try {
+        var payload = new FormData(form);
+        if (phoneInput && phone && phoneInput.value.trim()) payload.set("Phone", phone.getNumber());
         var response = await fetch(ENDPOINT, {
           method: "POST",
           headers: { "Authorization": "Bearer " + SUPABASE_PUBLISHABLE_KEY, "apikey": SUPABASE_PUBLISHABLE_KEY },
-          body: new FormData(form)
+          body: payload
         });
         var result = await response.json().catch(function () { return {}; });
         if (!response.ok) throw new Error(result.error || "The request could not be submitted.");

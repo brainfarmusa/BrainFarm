@@ -6,12 +6,13 @@
   <title>Request a Quote | BrainFarm USA</title>
   <meta name="description" content="Request a BrainFarm USA quote for a private AI system, consulting, training, maintenance or an engineered upgrade.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25/build/css/intlTelInput.css">
 </head>
 <body class="inquiry-page">
   <header>
     <div class="wrap nav">
       <a class="brand" href="index.html"><img src="assets/brain-farm-usa-emblem-transparent.png" alt="BrainFarm USA patriotic brain-tree emblem"><span class="brand-name">BrainFarm <b>USA</b><small class="tag">PRIVATE AI. REAL ANSWERS. <em>REAL VALUE.</em></small></span></a>
-      <nav aria-label="Main navigation"><a href="products.html">Platforms</a><a href="services.html">Success Program</a><a href="want-to-buy.html">Want to Buy</a><a href="want-to-sell.html">Want to Sell</a><a class="cta" href="contact.html" aria-current="page">Request a Quote</a></nav>
+      <nav aria-label="Main navigation"><a href="products.html">Platforms</a><a href="services.html">Success Program</a><a href="live-bid-board.html">Live Bid Board</a><a href="want-to-buy.html">Want to Buy</a><a href="want-to-sell.html">Want to Sell</a><a class="cta" href="contact.html" aria-current="page">Request a Quote</a></nav>
     </div>
   </header>
   <main>
@@ -45,7 +46,7 @@
           <h2>Request a Quote</h2>
           <p>Complete what you know. We will follow up for anything else.</p>
           <div class="form-grid two"><label>Full name<input name="Name" required autocomplete="name"></label><label>Company<input name="Company" required autocomplete="organization"></label></div>
-          <div class="form-grid two"><label>Email<input type="email" name="Email" required autocomplete="email"></label><label>Phone<input type="tel" name="Phone" autocomplete="tel"></label></div>
+          <div class="form-grid two"><label>Email<input type="email" name="Email" required autocomplete="email"></label><label>Phone<input type="tel" name="Phone" data-phone-input autocomplete="tel" inputmode="tel" placeholder="530-555-1212"></label></div>
           <div class="form-grid two"><label>Estimated AI users<input type="number" name="Estimated AI users" min="1" placeholder="e.g. 15"></label><label>System interest<select name="System interest"><option>Not sure — recommend a system</option><option>Entry-Level AI Starter Node</option><option>Mid-Level AI Business Node</option><option>High-End A100 Enterprise Node</option><option>Consulting, training or maintenance</option><option>Upgrade parts or engineering</option></select></label></div>
           <label>What should the private AI help your company do?<textarea name="Goals and use cases" required placeholder="Document search, private chat, OCR, customer service, drafting, analysis, automation or other goals"></textarea></label>
           <label>Documents, data and existing systems<textarea name="Documents, data and systems" placeholder="Types of files, approximate volume, current servers, network, software and integrations"></textarea></label>
@@ -58,6 +59,6 @@
     </section>
   </main>
   <footer><div class="wrap"><div class="brand"><img src="assets/brain-farm-usa-emblem-transparent.png" alt=""><span class="brand-name">BrainFarm <b>USA</b></span></div><p><a href="want-to-buy.html">Want to Buy</a> · <a href="want-to-sell.html">Want to Sell</a> · <a href="products.html">AI Platforms</a> · <a href="about.html">About</a></p><p>© 2026 BrainFarm USA</p></div></footer>
-  <script src="forms.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25/build/js/intlTelInputWithUtils.min.js"></script><script src="forms.js"></script>
 </body>
 </html>
